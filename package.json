@@ -22,7 +22,6 @@
   ],
   "license": "MIT",
   "name": "census",
-  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gibatronic/census.git"
