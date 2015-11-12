@@ -1,0 +1,28 @@
+{
+  "author": "Gibran Malheiros <gibatronic@gmail.com> (http://gibatronic.github.io/)",
+  "bin": "bin/census",
+  "bugs": {
+    "url": "https://github.com/gibatronic/census/issues"
+  },
+  "description": "Check how your GitHub repository is going on.",
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  },
+  "homepage": "https://github.com/gibatronic/census#readme",
+  "keywords": [
+    "github",
+    "repository",
+    "report",
+    "statistic",
+    "status"
+  ],
+  "license": "MIT",
+  "name": "census",
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gibatronic/census.git"
+  },
+  "version": "0.0.0"
+}
