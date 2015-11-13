@@ -1,31 +1,12 @@
 #!/usr/bin/env node
 
-var getUserRepositories = require('../lib/get-user-repositories');
+var census = require('../lib/census');
+var error = require('../lib/error');
+var expandOwnersToRepositories = require('../lib/expand-owners-to-repositories');
+var help = require('../lib/help');
+var request = require('request');
+var version = require('../lib/version');
 var yargs = require('yargs');
-
-var census = function(repositories) {
-  // @todo get information from each given repository
-};
-
-var error = function(exception) {
-  process.stderr.write(exception.toString().trim() + '\n');
-};
-
-var help = function() {
-  var message = [
-    '',
-    '  Usage:',
-    '    census [options] [owner/repo]',
-    '',
-    '  Options:',
-    '    -h, --help     print usage information',
-    '    -v, --version  print census version',
-    '',
-    ''
-  ].join('\n');
-
-  process.stderr.write(message);
-};
 
 var main = function(argv) {
   var argv = yargs.alias('h', 'help')
@@ -42,25 +23,15 @@ var main = function(argv) {
     return version();
   }
 
-  var repositories = argv._;
-
-  if (repositories.length == 0) {
-    try {
-      repositories = getUserRepositories();
-    } catch (exception) {
-      return error(exception);
-    }
+  if (argv._.length == 0) {
+    throw new Error('No owner or repository information was given.');
   }
 
-  return census(repositories);
+  expandOwnersToRepositories(argv._).then(census, error);
 };
 
-var version = function() {
-  process.stderr.write('v' + require('../package').version + '\n');
-};
-
-if (require.main != module) {
-  return;
+try {
+  main(process.argv.slice(2));
+} catch (exception) {
+  error(exception);
 }
-
-main(process.argv.slice(2));
