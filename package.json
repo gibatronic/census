@@ -5,6 +5,7 @@
     "url": "https://github.com/gibatronic/census/issues"
   },
   "dependencies": {
+    "request": "^2.65.0",
     "yargs": "^3.29.0"
   },
   "description": "Check how your GitHub repository is going on.",
