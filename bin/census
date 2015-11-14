@@ -24,10 +24,10 @@ var main = function(argv) {
   }
 
   if (argv._.length == 0) {
-    throw new Error('No owner or repository information was given.');
+    throw new Error('No owner or repository information was given');
   }
 
-  expandOwnersToRepositories(argv._).then(census, error);
+  expandOwnersToRepositories(argv._).then(census).catch(error);
 };
 
 try {
