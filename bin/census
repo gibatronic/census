@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-var census = require('../lib/census');
 var error = require('../lib/error');
 var expandOwnersToRepositories = require('../lib/expand-owners-to-repositories');
+var getRepositories = require('../lib/get-repositories');
 var help = require('../lib/help');
+var print = require('../lib/print');
 var request = require('request');
 var version = require('../lib/version');
 var yargs = require('yargs');
@@ -27,7 +28,7 @@ var main = function(argv) {
     throw new Error('No owner or repository information was given');
   }
 
-  expandOwnersToRepositories(argv._).then(census).catch(error);
+  expandOwnersToRepositories(argv._).then(getRepositories).then(print).catch(error);
 };
 
 try {
