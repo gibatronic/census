@@ -1,4 +1,4 @@
-# Census [![Build Status](https://travis-ci.org/gibatronic/census.svg?branch=master)](https://travis-ci.org/gibatronic/census)
+# Census [![Build Status](https://travis-ci.org/gibatronic/census.svg?branch=master)](https://travis-ci.org/gibatronic/census) [![Code Climate](https://codeclimate.com/github/gibatronic/census/badges/gpa.svg)](https://codeclimate.com/github/gibatronic/census)
 
 Check how your GitHub repository is going on.
 
