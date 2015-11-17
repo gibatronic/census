@@ -3,6 +3,8 @@ var expandOwnersToRepositories = rewire('../lib/expand-owners-to-repositories.js
 
 describe('expand-owners-to-repositories', function() {
   it('should expand onwer usernames to their repositories', function(done) {
+    var Repository = function() { };
+
     var inputList = [
       'onwer-a/repository-a',
       'onwer-a/repository-b',
@@ -13,13 +15,15 @@ describe('expand-owners-to-repositories', function() {
     var outputList = [
       'onwer-a/repository-a',
       'onwer-a/repository-b',
-      'onwer-b/repository-a',
-      'onwer-b/repository-b',
-      'onwer-b/repository-c',
+      new Repository(),
+      new Repository(),
+      new Repository(),
       'onwer-c/repository-a'
     ];
 
     expandOwnersToRepositories.__set__({
+      Repository: Repository,
+
       request: function(options, callback) {
         var data = JSON.stringify([{
           full_name: 'onwer-b/repository-a'
