@@ -2,7 +2,7 @@
 
 Check how your GitHub repository is going on.
 
-![census](/../gh-pages/etc/census.png?raw=true)
+<img src="/../gh-pages/etc/census.png?raw=true" width="325">
 
 ## Usage
 
